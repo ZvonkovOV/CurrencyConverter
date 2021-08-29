@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Currency Converter</string>
+    <string name="connection_error">Ошибка соединения</string>
+    <string name="xml_error">Ошибка</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="currency_converter">Конвертер Валют</string>
+    <string name="choice_currency">Выбор Валют</string>
+    <string name="internet_connection_lost">Нет подключения к Интернету, приложение будет закрыто</string>
+    <string name="dialog_title">Нет подключения к Интернету</string>
+    <string name="ok">Ок</string>
+    <string name="change_currency">Изменить Валюту</string>
+    <string name="cancel">Отмена</string>
+</resources>

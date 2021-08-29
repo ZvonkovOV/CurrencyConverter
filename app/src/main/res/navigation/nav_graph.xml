@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/loadFragment">
+
+    <fragment
+        android:id="@+id/loadFragment"
+        android:name="com.demozov.currencyconverter.view.LoadFragment"
+        android:label="@string/currency_converter"
+        tools:layout="@layout/fragment_load" >
+        <action
+            android:id="@+id/action_loadFragment_to_converterFragment"
+            app:destination="@id/converterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/converterFragment"
+        android:name="com.demozov.currencyconverter.view.ConverterFragment"
+        android:label="@string/currency_converter"
+        tools:layout="@layout/fragment_converter" >
+        <action
+            android:id="@+id/action_converterFragment_to_choiceCurrencyFragment"
+            app:destination="@id/choiceCurrencyFragment" />
+        <argument
+            android:name="firstValute"
+            app:argType="string"
+            android:defaultValue="RUB" />
+        <argument
+            android:name="secondValute"
+            app:argType="string"
+            android:defaultValue="USD" />
+    </fragment>
+    <fragment
+        android:id="@+id/choiceCurrencyFragment"
+        android:name="com.demozov.currencyconverter.view.ChoiceCurrencyFragment"
+        android:label="@string/choice_currency"
+        tools:layout="@layout/fragment_choice_corrency" >
+        <action
+            android:id="@+id/action_choiceCurrencyFragment_to_converterFragment"
+            app:destination="@id/converterFragment" />
+        <argument
+            android:name="choiceCurrency"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="anotherCurrency"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="field"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
