@@ -1,14 +1,13 @@
 package com.demozov.currencyconverter.view
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.demozov.currencyconverter.R
 import com.demozov.currencyconverter.adapter.ChoiceCurrencyAdapter
 import com.demozov.currencyconverter.databinding.FragmentChoiceCorrencyBinding
 import com.demozov.currencyconverter.models.CurrencyViewModel
@@ -31,6 +30,7 @@ class ChoiceCurrencyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
         _binding = FragmentChoiceCorrencyBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -57,5 +57,20 @@ class ChoiceCurrencyFragment : Fragment() {
         adapter.submitList(viewModel.getListValute().filter {
             !it.charCode.equals(navigationArgs.anotherCurrency)
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.app_bar, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.favorite -> {
+                this.findNavController().navigateUp()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
